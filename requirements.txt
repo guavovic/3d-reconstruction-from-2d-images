@@ -1,0 +1,12 @@
+# Core libraries
+virtualenv>=20.29.2 https://pypi.org/project/virtualenv/
+numpy>=1.21.0 https://numpy.org/install/     
+opencv-python==4.5.0 https://pypi.org/project/opencv-python/
+matplotlib==3.4.0 https://pypi.org/project/matplotlib/
+tensorflow https://pypi.org/project/tensorflow/ esse nao instalou ===============
+trimesh==3.9.0  https://pypi.org/project/trimesh/
+open3d==0.15.0 https://pypi.org/project/open3d/ esse nao instalou =============== 
+torch==1.10.0 https://pypi.org/project/torch/
+torchvision==0.11.0 https://pypi.org/project/torchvision/
+
+# pip install numpy opencv-python matplotlib tensorflow torch torchvision trimesh open3d
