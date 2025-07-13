@@ -115,54 +115,14 @@ Usar a máscara para remover o fundo da imagem original.
 
 ## 6. Técnicas Avançadas: Estimativa de Profundidade e Geração de Malhas 3D
 Para melhorar a qualidade dos modelos 3D, foram exploradas técnicas avançadas, como a estimativa de profundidade e a geração de malhas 3D. O modelo **MiDaS** foi utilizado para estimar a profundidade a partir de imagens 2D:
-```
-import torch
-from torchvision.transforms import ToTensor
 
-# Carrega o modelo MiDaS
-modelo = torch.hub.load("intel-isl/MiDaS", "MiDaS")
-modelo.eval()
-
-# Estimativa de profundidade
-input_tensor = ToTensor()(image).unsqueeze(0)
-with torch.no_grad():
-    depth = modelo(input_tensor)
-```
 A partir do mapa de profundidade, foi gerada uma malha 3D utilizando a biblioteca **open3d**:
-```
-import open3d as o3d
-
-# Cria uma nuvem de pontos a partir do mapa de profundidade
-point_cloud = o3d.geometry.PointCloud.create_from_depth_image(depth_image)
-o3d.visualization.draw_geometries([point_cloud])
-```
 
 ---
 
 ## 7. Treinamento de um Modelo de Aprendizado de Máquina
 Foi implementada uma rede neural simples para mapear imagens 2D para modelos 3D. A arquitetura utilizada foi um **autoencoder**, conforme o exemplo abaixo:
-```
-import torch
-import torch.nn as nn
 
-class Simple3DModel(nn.Module):
-    def __init__(self):
-        super(Simple3DModel, self).__init__()
-        self.encoder = nn.Sequential(
-            nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2)
-        )
-        self.decoder = nn.Sequential(
-            nn.ConvTranspose2d(16, 3, kernel_size=2, stride=2),
-            nn.Sigmoid()
-        )
-
-    def forward(self, x):
-        x = self.encoder(x)
-        x = self.decoder(x)
-        return x
-```
 O modelo foi treinado utilizando o dataset ShapeNet.
 
 ---
