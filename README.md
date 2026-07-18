@@ -1,124 +1,133 @@
-# 🚀 Reconstrução 3D a partir de Imagens 2D
+# 3D Reconstruction from 2D Images
 
-Bem-vindo ao repositório do meu projeto de TCC! Este projeto tem como objetivo desenvolver uma ferramenta capaz de converter imagens 2D em modelos 3D, utilizando técnicas de aprendizado de máquina e visão computacional. Abaixo, você encontrará uma visão geral do projeto, as tecnologias utilizadas, as etapas desenvolvidas e os resultados obtidos.
-
----
-
-## 📋 Índice
-1. [Visão Geral do Projeto](#1-visão-geral-do-projeto)
-2. [Tecnologias Utilizadas](#2-tecnologias-utilizadas)
-3. [Etapas do Projeto](#3-etapas-do-projeto)
-4. [Resultados Finais](#4-resultados-finais)
-5. [Como Executar o Projeto](#5-como-executar-o-projeto)
-6. [Próximos Passos](#6-próximos-passos)
-7. [Referências](#7-referências)
+Project focused on building a tool that converts 2D images into 3D models using computer vision and machine learning techniques.
 
 ---
 
-## 1. Visão Geral do Projeto
-O objetivo deste projeto é criar uma ferramenta que permita a reconstrução de modelos 3D a partir de imagens 2D. A ferramenta utiliza técnicas de visão computacional e aprendizado de máquina para inferir a profundidade e a estrutura tridimensional de objetos a partir de uma ou mais imagens.
+## 1. Project Overview
 
-### Dificuldades
-- Uma única imagem não contém informações completas sobre a profundidade e a geometria do objeto.
-- A reconstrução 3D exige técnicas avançadas para "adivinhar" a estrutura tridimensional a partir de dados limitados.
+The goal of this project is to reconstruct 3D models from 2D images. The tool applies computer vision and machine learning techniques to infer depth and three-dimensional structure of objects from one or more images.
 
----
+### Challenges
 
-## 2. Tecnologias Utilizadas
-- **Python**: Linguagem principal para desenvolvimento.
-- **OpenCV**: Processamento de imagens e detecção de características.
-- **Trimesh**: Geração e manipulação de malhas 3D.
-- **PyTorch**: Implementação e treinamento de redes neurais.
-- **Open3D**: Visualização e processamento de dados 3D.
-- **Blender**: Visualização e edição de modelos 3D.
-- **MiDaS**: Modelo pré-treinado para estimativa de profundidade.
+- A single image does not carry complete information about depth and geometry.
+- 3D reconstruction requires advanced techniques to infer the three-dimensional structure from limited data.
 
 ---
 
-## 3. Resultados Finais
+## 2. Technologies
 
-### 4.1 Modelos 3D Básicos
-- **Cubo**:
-  ![Cubo](resultados/cubo.png)
-- **Esfera**:
-  ![Esfera](resultados/esfera.png)
-
-### 4.2 Estimativa de Profundidade
-- **Mapa de Profundidade**:
-  ![Mapa de Profundidade](resultados/mapa_profundidade.png)
-
-### 4.3 Malhas 3D Geradas
-- **Malha 3D a partir de Imagem 2D**:
-  ![Malha 3D](resultados/malha_3d.png)
-
-### 4.4 Modelos Complexos
-- **Reconstrução de Objetos Complexos**:
-  ![Objeto Complexo](resultados/objeto_complexo.png)
+| Technology | Purpose |
+|---|---|
+| **Python** | Main development language |
+| **OpenCV** | Image processing and feature detection |
+| **PyTorch** | Neural network implementation and training |
+| **MiDaS** | Pre-trained model for depth estimation |
+| **Trimesh** | 3D mesh generation and manipulation |
+| **Open3D** | 3D data visualization and processing |
+| **Blender** | 3D model visualization and editing |
 
 ---
 
-## 4. Como Executar o Projeto
-Siga os passos abaixo para executar o projeto localmente:
+## 3. Input Image Guidelines
 
-1. Clone o repositório:
+To get the best results, the input image matters as much as the model. Follow these recommendations:
+
+**Recommended:**
+
+- ✅ A single object per image
+- ✅ Standard front view of the object
+- ✅ White, monochrome or removed background
+
+**Not recommended:**
+
+- ⚠️ Text on the image
+- ⚠️ Multiple objects in one image
+- ⚠️ Complex or cluttered background
+- ❌ Inappropriate imagery, including harmful, offensive or NSFW content
+
+---
+
+## 4. Results
+
+### 4.1 Basic 3D Models
+
+**Cube:**
+![Cube](resultados/cubo.png)
+
+**Sphere:**
+![Sphere](resultados/esfera.png)
+
+### 4.2 Depth Estimation
+
+**Depth Map:**
+![Depth Map](resultados/mapa_profundidade.png)
+
+### 4.3 Generated 3D Meshes
+
+**3D mesh from a 2D image:**
+![3D Mesh](resultados/malha_3d.png)
+
+### 4.4 Complex Models
+
+**Reconstruction of complex objects:**
+![Complex Object](resultados/objeto_complexo.png)
+
+---
+
+## 5. How to Run
+
+1. Clone the repository:
+
+```sh
+git clone https://github.com/guavovic/3d-reconstruction-from-2d-images.git
+cd 3d-reconstruction-from-2d-images
 ```
-git clone https://github.com/seu-usuario/tcc-projeto-3d.git
-cd tcc-projeto-3d
-```
-2. Crie e ative o ambiente virtual:
-```
+
+2. Create and activate a virtual environment:
+
+```sh
 virtualenv venv
-source venv/bin/activate  # No Linux/Mac
-venv\Scripts\activate     # No Windows
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
 ```
-3. Instale as dependências:
-```
+
+3. Install the dependencies:
+
+```sh
 pip install -r requirements.txt
 ```
-4. Execute os scripts:
-```
+
+4. Run the scripts:
+
+```sh
 python scripts/passo_1/processamento_imagens.py
-
-Tips on Input Image
-To optimize the generated results, we recommend you to use a standardized front view of the object you're going to generate as the input image, with a white background and no text or extraneous information. This ensures the best quality when converting your 2D sketch to a 3D model.
-
-COLOCAR ALGO DO TIPO EM INGLES, PARA RECOMEDNAÇÕES DE TIPOS DE IMAGENS, SÓ QUE MESMO ASSIM TRATAR IMAGENS:
-
-Recommended inputs:
-✅ Single object in one image
-
-✅ Standard front view of the object
-
-✅ White/monochrome/no background
-
-Not recommended inputs:
-⚠️ Text on the image
-
-⚠️ Multiple objects in one image
-
-⚠️ Complex background
-
-❌ Inappropriate imagery (including but not limited to harmful content, offensive content, and NSFW content)
-
 ```
----
-
-## 5. Futuros Passos
-Adicionar suporte para múltiplas imagens (fotogrametria).
-Implementar uma interface gráfica utilizando Tkinter ou Streamlit.
-Explorar técnicas mais avançadas, como NeRF (Neural Radiance Fields).
 
 ---
 
-## 📂 Estrutura do Projeto
+## 6. Project Structure
+
+```text
 TCC-PROJECT/
-├── dados/                  # Pasta para armazenar imagens e modelos 3D
-├── scripts/                # Scripts Python para cada etapa do projeto
-├── resultados/             # Resultados gerados (imagens, modelos 3D, etc.)
-├── README.md               # Este arquivo
-└── requirements.txt        # Lista de dependências do projeto
+├── dados/           # Input images and 3D models
+├── scripts/         # Python scripts for each stage of the project
+├── resultados/      # Generated results (images, 3D models, etc.)
+├── README.md        # This file
+└── requirements.txt # Project dependencies
+```
 
 ---
 
-## 📄 Licença
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+## 7. Next Steps
+
+- Add support for multiple images (photogrammetry)
+- Build a graphical interface using Tkinter or Streamlit
+- Explore more advanced techniques such as NeRF (Neural Radiance Fields)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
