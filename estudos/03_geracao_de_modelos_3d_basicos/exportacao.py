@@ -1,6 +1,6 @@
 import os
 import trimesh
-import tests.src.utils as utils
+import estudos.utils as utils
 
 def exportar_malha(malha, tipo_malha, output_directory):
     

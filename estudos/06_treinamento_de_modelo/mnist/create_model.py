@@ -1,3 +1,4 @@
+from pathlib import Path
 import tensorflow as tf
 from tensorflow.keras import layers, models
 
@@ -30,4 +31,6 @@ if __name__ == "__main__":
     model = create_model(input_shape, num_classes)
 
     # Salvando o modelo
-    model.save('mnist_model_test.h5')
+    pasta = Path(__file__).resolve().parent.parent / 'resultados'
+    pasta.mkdir(parents=True, exist_ok=True)
+    model.save(str(pasta / 'mnist_model_test.h5'))

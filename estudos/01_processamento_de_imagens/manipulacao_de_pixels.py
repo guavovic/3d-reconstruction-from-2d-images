@@ -1,5 +1,7 @@
 import cv2
-import tests.src.utils as utils
+import os
+import estudos.utils as utils
+import estudos.config as config
 
 def getColor(image, x, y):
     return image.item(y, x, 0), image.item(y, x, 1), image.item(y, x, 2)
@@ -11,7 +13,7 @@ def setColor(image, x, y, b, g, r):
     return image
 
 def main():
-    object_image = cv2.imread('data/images/samples/opencv_banner.jpg')
+    object_image = cv2.imread(str(config.PASTA_IMAGENS / 'opencv_banner.jpg'))
     
     altura, largura, canais_de_cor = object_image.shape   
     print("Dimensões da Image: " + str(largura) + "x" + str(altura))
@@ -26,7 +28,7 @@ def main():
             object_image = setColor(object_image, x, y, azul, verde, vermelho)
     
     eye_image = object_image[210 : 210 + 130, 265 : 265 + 140]
-    cv2.imwrite("_modificada.png", object_image)
+    cv2.imwrite(os.path.join(config.pasta_resultados("01_processamento_de_imagens"), "_modificada.png"), object_image)
     
     object_image[100 : 100 + eye_image.shape[0], 450 : 450 + eye_image.shape[1]] = eye_image
     utils.showImage(object_image)

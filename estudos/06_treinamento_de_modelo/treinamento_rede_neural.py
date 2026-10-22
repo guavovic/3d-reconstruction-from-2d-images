@@ -6,7 +6,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 import numpy as np
 import os
-import src.config as config
+import estudos.config as config
 
 # Modelo de conversão de imagem para voxel grid
 class ImageTo3D(nn.Module):
@@ -72,8 +72,8 @@ transform = transforms.Compose([
 ])
 
 # Inicializando dataset e dataloader
-img_dir = "./images"
-voxel_dir = "./voxels"
+img_dir = str(config.PASTA_IMAGENS / "treino")
+voxel_dir = str(config.PASTA_IMAGENS / "treino_voxels")
 dataset = ImageTo3DDataset(img_dir, voxel_dir, transform=transform)
 dataloader = DataLoader(dataset, batch_size=8, shuffle=True)
 

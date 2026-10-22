@@ -1,10 +1,12 @@
-import tests.src.utils as utils
+import os
+import estudos.utils as utils
+import estudos.config as config
 import cv2
 import matplotlib.pyplot as plt
 
 def plotAddedImages():
-    circleImage = cv2.imread("bin1.png")
-    rectangleImage = cv2.imread("bin2.png")
+    circleImage = cv2.imread(str(config.PASTA_IMAGENS / "bin1.png"))
+    rectangleImage = cv2.imread(str(config.PASTA_IMAGENS / "bin2.png"))
     addedImage = cv2.add(circleImage, rectangleImage)
     addedWeightedImage = cv2.addWeighted(circleImage, 0.9, rectangleImage, 0.1, 0)
 
@@ -80,17 +82,17 @@ def addBlendingEffect(firstImage, secondImage, weight):
     return copyImg
 
 def memeGeneratorWithBlending(fala1, imagem1, fala2, imagem2, fundo):
-    atilaFeliz = cv2.imread(imagem1)
-    background = cv2.imread(fundo)
+    atilaFeliz = cv2.imread(str(config.PASTA_IMAGENS / imagem1))
+    background = cv2.imread(str(config.PASTA_IMAGENS / fundo))
     atilaFeliz = resizeImage(atilaFeliz, 250)
     finalImageUmAtila = addImageOverlay(background, atilaFeliz, 380, 465)
-    atilaBravo = cv2.imread(imagem2)
+    atilaBravo = cv2.imread(str(config.PASTA_IMAGENS / imagem2))
     atilaBravo = resizeImage(atilaBravo, 250)
     finalImageDoisAtilas = addImageOverlay(finalImageUmAtila, atilaBravo, 930, 460)
     finalImage = addBlendingEffect(finalImageUmAtila, finalImageDoisAtilas, 0.4)
     finalImage = cv2.putText(finalImage, fala1, (210, 420), cv2.FONT_HERSHEY_SIMPLEX , 2.5, (0, 0, 0), 5, cv2.LINE_AA)
     finalImage = cv2.putText(finalImage, fala2, (1030, 1150), cv2.FONT_HERSHEY_SIMPLEX , 2.5, (0, 0, 0) , 5, cv2.LINE_AA)
-    cv2.imwrite("memeatila.png", finalImage)
+    cv2.imwrite(os.path.join(config.pasta_resultados("01_processamento_de_imagens"), "memeatila.png"), finalImage)
 
 def showImageGrid(image, title):
     fig, axis = plt.subplots() 

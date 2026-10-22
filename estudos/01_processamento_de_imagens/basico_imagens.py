@@ -1,4 +1,5 @@
 import cv2
+import estudos.config as config
 
 def showImage(img):
     from matplotlib import pyplot as plt
@@ -21,7 +22,7 @@ def getImageWithRedColorOnly(img):
     return img
 
 def main():
-    img = cv2.imread("ada.jpg")
+    img = cv2.imread(str(config.PASTA_IMAGENS / "ada.jpg"))
     print("As dimensões dessa imagem são: " + str(img.shape))
 
     eye = img[168:190,97:124]

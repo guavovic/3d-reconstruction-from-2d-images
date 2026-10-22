@@ -1,10 +1,10 @@
 import cv2
 import os
-import tests.src.utils as utils
-import tests.src.config as config
+import estudos.utils as utils
+import estudos.config as config
 
 def main():
-    OUTPUT_DIRECTORY = 'results/tests/3_deteccao_de_contornos/contornos'
+    OUTPUT_DIRECTORY = config.pasta_resultados('02_deteccao_de_contornos', 'contornos')
 
     for path in config.DIRECTORY_TEST_IMAGES_LINKS:
         

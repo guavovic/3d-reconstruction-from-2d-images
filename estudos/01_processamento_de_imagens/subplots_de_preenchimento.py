@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
-import tests.src.utils as utils
+import estudos.utils as utils
+import estudos.config as config
 
 def plotTwoImageVertical(imageOriginal):
     imgReplicate = cv2.copyMakeBorder(imageOriginal, 200, 100, 50, 10, cv2.BORDER_REPLICATE)
@@ -55,7 +56,7 @@ def plotSixImages(imageOriginal):
     utils.showMultipleImageGrid(imgsArray, titlesArray, 3, 2)
 
 def main():
-    object_image = cv2.imread('data/images/opencv_banner_fundo_branco.jpg')
+    object_image = cv2.imread(str(config.PASTA_IMAGENS / 'opencv_banner_fundo_branco.jpg'))
     
     plotTwoImageVertical(object_image)
     plotTwoImageHorizontal(object_image)

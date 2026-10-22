@@ -1,4 +1,6 @@
+import os
 import cv2
+import estudos.config as config
 import torch
 import matplotlib.pyplot as plt
 from torchvision.transforms import ToTensor
@@ -22,7 +24,7 @@ def main():
         transform = midas_transforms.small_transform
 
     # Load image and apply transforms
-    image = cv2.imread('results/tests/2_deteccao_de_contornos/remocao_de_fundo/rembg_grabcut.png')
+    image = cv2.imread(os.path.join(config.pasta_resultados('02_deteccao_de_contornos', 'remocao_de_fundo'), 'rembg_grabcut.png'))
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     input_batch = transform(image).to(device)
@@ -41,7 +43,7 @@ def main():
 
     depth_map = prediction.cpu().numpy()
 
-    path = 'results/tests/4_estimativa_de_profundidade/mapa_profundidade.png'
+    path = os.path.join(config.pasta_resultados('04_estimativa_de_profundidade'), 'mapa_profundidade.png')
     plt.imsave(path, depth_map, cmap='plasma')
 
     print('Mapa de profundidade salvo em ' +  path)

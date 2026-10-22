@@ -2,8 +2,8 @@ import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-import tests.src.utils as utils
-import tests.src.config as config
+import estudos.utils as utils
+import estudos.config as config
 
 def remover_fundo(image_path, output_dir, blur=21, canny_thresh_1=10, canny_thresh_2=200, mask_dilate_iter=10, mask_erode_iter=10):
     """
@@ -153,7 +153,7 @@ def remover_fundo_grabcut(image_path, output_dir):
     return save_path
 
 def main():    
-    OUTPUT_DIRECTORY = 'results/tests/2_deteccao_de_contornos/remocao_de_fundo'
+    OUTPUT_DIRECTORY = config.pasta_resultados('02_deteccao_de_contornos', 'remocao_de_fundo')
     edited_images = []
 
     for path in config.DIRECTORY_TEST_IMAGES_LINKS:

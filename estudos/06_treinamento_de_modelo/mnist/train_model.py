@@ -1,3 +1,4 @@
+from pathlib import Path
 import tensorflow as tf
 from create_model import create_model
 
@@ -10,8 +11,11 @@ if __name__ == "__main__":
     train_images = train_images[..., tf.newaxis]
     test_images = test_images[..., tf.newaxis]
 
+    pasta = Path(__file__).resolve().parent.parent / 'resultados'
+    pasta.mkdir(parents=True, exist_ok=True)
+
     # Carregando o modelo
-    model = tf.keras.models.load_model('mnist_model.h5')
+    model = tf.keras.models.load_model(str(pasta / 'mnist_model.h5'))
 
     # Compilando o modelo
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
@@ -20,4 +24,4 @@ if __name__ == "__main__":
     model.fit(train_images, train_labels, epochs=5, validation_data=(test_images, test_labels))
 
     # Salvando o modelo treinado
-    model.save('mnist_trained_model.h5')
+    model.save(str(pasta / 'mnist_trained_model.h5'))

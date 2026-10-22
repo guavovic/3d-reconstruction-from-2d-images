@@ -1,11 +1,13 @@
 import open3d as o3d
 import numpy as np
+import os
 import cv2
+import estudos.config as config
 
 def main():
     # Constantes para caminhos de arquivos
-    DEPTH_MAP_PATH = 'results/tests/4_estimativa_de_profundidade/mapa_profundidade.png'
-    OUTPUT_POINT_CLOUD_PATH = 'results/tests/5_geracao_de_malha_3d/malha.ply'
+    DEPTH_MAP_PATH = os.path.join(config.pasta_resultados('04_estimativa_de_profundidade'), 'mapa_profundidade.png')
+    OUTPUT_POINT_CLOUD_PATH = os.path.join(config.pasta_resultados('05_geracao_de_malha_3d'), 'malha.ply')
 
     # Parâmetros intrínsecos da câmera (ajuste conforme necessário)
     CAMERA_FX = 100  # Distância focal em pixels (eixo x)
@@ -53,7 +55,7 @@ def main():
     except Exception as e:
         print(f"Erro ao criar a nuvem de pontos: {e}")
         
-    pcd = o3d.io.read_point_cloud('results/tests/5_geracao_de_malha_3d/malha.ply')
+    pcd = o3d.io.read_point_cloud(OUTPUT_POINT_CLOUD_PATH)
     o3d.visualization.draw_geometries([pcd])
     
 if __name__ == "__main__":

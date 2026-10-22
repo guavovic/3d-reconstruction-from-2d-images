@@ -1,6 +1,6 @@
 import torch
 from treinamento_rede_neural import Simple3DModel
-import src.config as config
+import estudos.config as config
 
 modelo = Simple3DModel()
 modelo.load_state_dict(torch.load(f'{config.GENERETAD_MODEL_SAVE_PATH}/{config.GENERETAD_SAVED_MODEL_NAME}'))

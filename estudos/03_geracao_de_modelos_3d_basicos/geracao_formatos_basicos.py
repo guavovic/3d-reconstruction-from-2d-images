@@ -1,5 +1,6 @@
 import trimesh as tm
 import exportacao as exp
+import estudos.config as config
 
 def criar_esfera(raio=1.0, subdivisoes=3):
     return tm.creation.icosphere(subdivisions=subdivisoes, radius=raio)
@@ -69,7 +70,7 @@ def criar_garfo(comprimento_cabo=5.0, espessura_cabo=0.2, comprimento_dentes=1.0
 
 
 def main():
-    OUTPUT_DIRECTORY = 'results/passo_3 (geração de modelos 3D básicos)/objs/'
+    OUTPUT_DIRECTORY = config.pasta_resultados('03_geracao_de_modelos_3d_basicos', 'objetos_gerados')
 
     exp.exportar_malha(malha=criar_esfera(),tipo_malha='esfera',output_directory=OUTPUT_DIRECTORY)
     exp.exportar_malha(malha=criar_triangulo(), tipo_malha='triangulo',output_directory=OUTPUT_DIRECTORY)
