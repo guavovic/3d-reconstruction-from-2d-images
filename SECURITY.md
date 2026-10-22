@@ -1,21 +1,9 @@
-# Security Policy
+# Política de segurança
 
-## Supported Versions
+## Versões com suporte
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+O projeto não tem versões publicadas. O suporte vai só para o código da branch `main`.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Como relatar uma vulnerabilidade
 
-## Reporting a Vulnerability
-
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Use o relato privado de vulnerabilidades do GitHub: aba **Security** do repositório, depois **Report a vulnerability**. Evite abrir uma issue pública com os detalhes.
