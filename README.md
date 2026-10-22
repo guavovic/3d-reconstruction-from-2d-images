@@ -3,7 +3,7 @@
 <p align="center">Ferramenta do meu TCC que transforma uma foto comum em um modelo 3D. Ela tira o fundo da imagem, estima a profundidade de cada pixel com inteligência artificial e monta a malha 3D a partir disso, pronta para abrir no Blender.</p>
 
 <p align="center">
-  <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/github/license/guavovic/3d-reconstruction-from-2d-images"></a>
+  <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/github/license/guavovic/3d-reconstruction-from-2d-images?style=flat-square&label=licen%C3%A7a&color=2ea043"></a>
 </p>
 
 <p align="center">
