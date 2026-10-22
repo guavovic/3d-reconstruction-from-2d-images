@@ -1,14 +1,14 @@
-# Core libraries
-virtualenv>=20.29.2 https://pypi.org/project/virtualenv/
-setuptool== 76.0.0 https://pypi.org/project/setuptools/
-numpy>=1.21.0 https://numpy.org/install/     
-opencv-python==4.5.0 https://pypi.org/project/opencv-python/
-matplotlib==3.4.0 https://pypi.org/project/matplotlib/
-tensorflow https://pypi.org/project/tensorflow/ esse nao instalou ===============
-trimesh==3.9.0  https://pypi.org/project/trimesh/
-open3d==0.15.0 https://pypi.org/project/open3d/ esse nao instalou =============== 
-torch==1.10.0 https://pypi.org/project/torch/
-torchvision==0.11.0 https://pypi.org/project/torchvision/
-timm==1.0.15 https://pypi.org/project/timm/
+# App e estudos
+numpy>=1.21.0
+Pillow
+opencv-python==4.5.0
+matplotlib==3.4.0
+torch==1.10.0
+torchvision==0.11.0
+timm==1.0.15
+rembg
+trimesh==3.9.0
 
-# pip install numpy opencv-python matplotlib tensorflow torch torchvision timm trimesh open3d setuptools
+# Só nos estudos (open3d no 05, tensorflow no MNIST do 06)
+open3d==0.15.0
+tensorflow
