@@ -127,14 +127,15 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# # Environments
-# .env
-# .venv
-# env/
-# venv/
-# ENV/
-# env.bak/
-# venv.bak/
+# Environments
+.env
+.venv/
+env/
+venv/
+virtual/
+ENV/
+env.bak/
+venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -169,3 +170,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Projeto
+app/cache/
+*.h5
+*.pth
+*.ply
+
+# Fotos de entrada (so o .gitkeep fica)
+imagens/*
+!imagens/.gitkeep
