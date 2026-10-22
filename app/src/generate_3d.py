@@ -9,9 +9,7 @@ import os
 from src.config import CACHE_PATH
 from src.utils import log_message
 
-# Diretório de cache
-CACHE_DIR = "cache"
-os.makedirs(CACHE_DIR, exist_ok=True)  # Cria o diretório de cache se não existir
+os.makedirs(CACHE_PATH, exist_ok=True)
 
 def generate_3d_model(image):
     """
